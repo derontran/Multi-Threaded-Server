@@ -1,3 +1,7 @@
+# Multi-Threaded Server 
++ Server and clients communicate to each other using Inter-process communication(IPC). Each time the server got a request, it will go through a sanitize process which is a state machine that process each byte of the request input ensuring that we don't have any buffer problems. Then the request input will be passed to the server's thread pool to do job on them and respond the output to the client acordingly. Note that the server has a limited number of worker thread and they are meant to be independent to the process that taking the client request that why we made sure to have a proper lock machanism so  that the worker-threads will never block the server from taking the client request.  
+
+
 # to run please include template.txt for server to usę and data.txt needed for client 
 # example run :
 # make 
