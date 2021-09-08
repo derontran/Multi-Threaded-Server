@@ -3,14 +3,14 @@
 
 
 ### to run please include template.txt for server to usę and data.txt needed for client 
-- example run :
+example run :
 1. make 
 2. ./server & 
 3. ./client -c 1 < data.txt & or sh run_clients.sh
 
 
 ### Discussion on number of thread: 
-after experiment with different number of thread. I come to the conlusion that any thread number that can be use but 1-3  
++ after experiment with different number of thread. I come to the conlusion that any thread number that can be use but 1-3  
 threads gave fairly better result. Although we make concurrency on message procesing to the client, the server still have to 
 synchronizedly receice the requests and sanitize the message received, which slow down the work to be passed to the number of 
 worker. So if we have such a high number of threads that just mean the job will still be done but some of the worker will have
